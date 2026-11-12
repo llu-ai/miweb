@@ -10,7 +10,7 @@
 
 
 body {
-   color: rgb(255, 255, 255);
+   color: yellow;
    font-family: sans-serif;
 
 }
@@ -18,7 +18,7 @@ body {
 a {
     color: yellow;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 60px;
 }
 
 ul {
