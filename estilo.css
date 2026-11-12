@@ -16,11 +16,20 @@ body {
 }
 
 a {
-    color: rgb(255, 0, 0);
+    color: blue;
     text-decoration: none;
     font-size: 34px;
 }
 
+a {
+  text-decoration: none;
+  padding: 4px 8px; /* Espacio interior para que el borde no pegue al texto */
+  transition: border-color 0.3s ease;
+}
+
+a:hover {
+  border: 2px solid greenyellow;
+}
 ul {
     list-style: none;
 }
