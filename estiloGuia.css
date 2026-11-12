@@ -8,10 +8,10 @@ body {
   margin: 0;
 }   
   
-body {
+body{ 
    color: blue (0, 0, 255);
    font-family: sans-serif;
-
+}
 
 a {
     color:blue;
@@ -19,7 +19,7 @@ a {
     font-size: 24px;
 
    }
-    {
+  i  {
   text-decoration: none;
   padding: 4px 8px; /* Espacio interior para que el borde no pegue al texto */
   transition: border-color 0.3s ease;
