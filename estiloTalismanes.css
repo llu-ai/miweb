@@ -134,3 +134,13 @@
     padding: 10px 18px;
     border: 2px solid currentColor;
 }
+
+/* Al pulsar un enlace del menú, la página baja suavemente hasta el grupo */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Menú de esta página: letra más pequeña que en el resto de la web */
+ul a {
+    font-size: 18px;
+}
