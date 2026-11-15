@@ -1,0 +1,25 @@
+.quien {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.quien figcaption {
+    flex: 1;
+}
+
+.grande {
+    width: 60%;
+    max-width: 500px;
+    height: auto;
+}
+
+/* En móvil: texto encima de la imagen */
+@media (max-width: 600px) {
+    .quien {
+        flex-direction: column;
+    }
+    .grande {
+        width: 100%;
+    }
+}
