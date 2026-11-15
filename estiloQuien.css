@@ -27,3 +27,13 @@ body {
         width: 100%;
     }
 }
+
+/* Texto que aparece al pulsar "¿quién es Llumvre?" */
+.texto-quien {
+    animation: aparece 0.5s ease-out;
+}
+
+@keyframes aparece {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

@@ -4,15 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quien</title>
+      <link rel="stylesheet" href="estilo.css">
       <link rel="stylesheet" href="estiloQuien.css">
 </head>
-<body>
+<body class="con-rayo">
     <figure class="quien">
       <img class="grande" src="img/imagenes-webp (1)/imagene corons-webp/0054.webp">
       <figcaption>
-       <h3>quién es Llumvre?</h3>
-       
+       <h3><a href="#" id="abrir-texto" aria-expanded="false" aria-controls="texto-quien">¿quién es Llumvre?</a></h3>
+       <div id="texto-quien" class="texto-quien" hidden>
+         <p>
+           Escribe aquí tu texto.
+         </p>
+       </div>
       </figcaption>
     </figure>
+    <script>
+      // Al pulsar el enlace, aparece (o desaparece) el texto de debajo
+      const enlace = document.getElementById('abrir-texto');
+      const texto = document.getElementById('texto-quien');
+      enlace.addEventListener('click', function (e) {
+        e.preventDefault();
+        texto.hidden = !texto.hidden;
+        enlace.setAttribute('aria-expanded', String(!texto.hidden));
+      });
+    </script>
 </body>
 </html>
