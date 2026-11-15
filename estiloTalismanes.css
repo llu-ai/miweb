@@ -114,7 +114,33 @@
     border: 3px solid #a87500;
     box-shadow: inset 0 0 0 4px #e8b72a;
     opacity: 0.7;
-    animation: girar 2.4s linear infinite;
+    overflow: hidden;           /* el destello no se sale de la moneda */
+    animation: girar 2.4s linear infinite, brillar 1.8s ease-in-out infinite;
+}
+
+/* Destello de luz que cruza la moneda */
+.moneda::after {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: -60%;
+    width: 40%;
+    height: 140%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent);
+    transform: rotate(25deg);
+    animation: destello 2.4s ease-in-out infinite;
+}
+
+/* Resplandor dorado alrededor de la moneda */
+@keyframes brillar {
+    0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.4)) brightness(1); }
+    50%      { filter: drop-shadow(0 0 12px rgba(255, 215, 0, 1)) brightness(1.3); }
+}
+
+@keyframes destello {
+    0%   { left: -60%; }
+    60%  { left: 130%; }
+    100% { left: 130%; }
 }
 
 @keyframes girar {
@@ -124,7 +150,8 @@
 
 /* Si la persona tiene desactivadas las animaciones, las monedas se quedan quietas */
 @media (prefers-reduced-motion: reduce) {
-    .moneda { animation: none; }
+    .moneda,
+    .moneda::after { animation: none; }
 }
 
 .encargos .boton {
