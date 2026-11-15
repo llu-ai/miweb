@@ -1,0 +1,60 @@
+/* Filas de fotos: cada .fila es una línea */
+.fila {
+    display: grid;
+    gap: 4px;                   /* línea fina entre fotos, igual que en talismanes */
+    max-width: 1200px;
+    margin: 0 auto 4px;
+}
+
+.fila.cuatro { grid-template-columns: repeat(4, 1fr); }   /* 4 fotos por línea */
+.fila.dos    { grid-template-columns: repeat(2, 1fr); max-width: 800px; }   /* 2 fotos por línea */
+
+.fila.tres   { grid-template-columns: repeat(3, 1fr); max-width: 1000px; }  /* 3 fotos por línea */
+.fila.uno    { grid-template-columns: 1fr; max-width: 400px; }               /* 1 foto sola */
+
+.fila img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;        /* las fotos son verticales 3:4, no se recortan */
+    object-fit: cover;
+}
+
+/* En el móvil: 2 fotos por línea */
+@media (max-width: 500px) {
+    .fila.cuatro { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Línea con una foto horizontal y una vertical: misma altura, ninguna se recorta.
+   Cada foto lleva style="--r: ancho/alto" en el HTML */
+.fila.mixta {
+    display: flex;
+    max-width: 1000px;
+}
+
+.fila.mixta img {
+    flex: calc(var(--r)) 1 0;
+    min-width: 0;
+    aspect-ratio: var(--r);
+}
+
+/* ===== Sección de encargos: texto a la izquierda, foto a la derecha ===== */
+.encargos.con-foto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.foto-encargos {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    justify-self: end;          /* pegada al borde derecho */
+}
+
+/* En el móvil: la foto debajo del texto */
+@media (max-width: 700px) {
+    .encargos.con-foto { grid-template-columns: 1fr; }
+    .foto-encargos { justify-self: center; }
+}
