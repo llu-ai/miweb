@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>precios coronas · prices · preus — llumvre</title>
+
+  <style>
+    body { margin: 40px; }
+
+    .preus {
+      font-family: sans-serif;
+      font-size: 15px;
+      color: #1a1aa6;
+      max-width: 900px;
+    }
+    .preus a { color: #1a1aa6; }
+
+    /* Cada fila: español | english | català | precio */
+    .preus .fila {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 150px;
+      gap: 16px;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(26, 26, 166, 0.2);
+      align-items: baseline;
+    }
+
+    /* Cabecera con el nombre de cada idioma */
+    .preus .cabecera {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 2px solid #1a1aa6;
+    }
+
+    /* Inglés y catalán un poco más suaves para distinguir los idiomas */
+    .preus .en,
+    .preus .ca { opacity: 0.7; }
+
+    .preus .precio {
+      text-align: right;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    .preus .precio.texto { font-weight: normal; font-size: 13px; white-space: normal; }
+
+    /* Título de cada grupo (coronas, guirnaldas…) */
+    .preus h2 {
+      font-size: 15px;
+      font-weight: bold;
+      margin: 36px 0 4px;
+    }
+    .preus h2 span { font-weight: normal; opacity: 0.7; }
+
+    .preus .nota { font-size: 13px; border-bottom: none; padding-top: 4px; }
+    .preus .contacto { margin-top: 40px; }
+
+    /* En el móvil: cada producto en bloque, idiomas uno debajo de otro */
+    @media (max-width: 600px) {
+      body { margin: 20px 16px; }
+      .preus .cabecera { display: none; }
+      .preus .fila {
+        grid-template-columns: 1fr auto;
+        gap: 2px 12px;
+      }
+      .preus .es { grid-column: 1; grid-row: 1; }
+      .preus .en { grid-column: 1; grid-row: 2; font-size: 13px; }
+      .preus .ca { grid-column: 1; grid-row: 3; font-size: 13px; }
+      .preus .precio { grid-column: 2; grid-row: 1; }
+      .preus .precio.texto { max-width: 130px; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="preus">
+
+    <div class="fila cabecera">
+      <span class="es">español</span>
+      <span class="en">english</span>
+      <span class="ca">català</span>
+      <span class="precio">precio · price · preu</span>
+    </div>
+
+    <h2>coronas <span>· wreaths · corones</span></h2>
+
+    <div class="fila">
+      <span class="es">corona pequeña</span>
+      <span class="en">small wreath</span>
+      <span class="ca">corona petita</span>
+      <span class="precio">22 €</span>
+    </div>
+    <div class="fila">
+      <span class="es">corona mediana</span>
+      <span class="en">medium wreath</span>
+      <span class="ca">corona mitjana</span>
+      <span class="precio">27 €</span>
+    </div>
+    <div class="fila nota">
+      <span class="es">con o sin lazo</span>
+      <span class="en">with or without a bow</span>
+      <span class="ca">amb o sense llaç</span>
+    </div>
+
+    <h2>guirnaldas <span>· garlands · garlandes</span></h2>
+
+    <div class="fila">
+      <span class="es">guirnalda pequeña</span>
+      <span class="en">small garland</span>
+      <span class="ca">garlanda petita</span>
+      <span class="precio">22 €</span>
+    </div>
+    <div class="fila">
+      <span class="es">guirnalda grande</span>
+      <span class="en">large garland</span>
+      <span class="ca">garlanda gran</span>
+      <span class="precio">29 €</span>
+    </div>
+
+    <h2>envíos <span>· shipping · enviaments</span></h2>
+
+    <div class="fila">
+      <span class="es">envío península</span>
+      <span class="en">shipping, mainland spain</span>
+      <span class="ca">enviament península</span>
+      <span class="precio">5 €</span>
+    </div>
+    <div class="fila">
+      <span class="es">entrega en mano gratis</span>
+      <span class="en">free hand delivery</span>
+      <span class="ca">lliurament en mà gratuït</span>
+      <span class="precio texto">barcelona · premià de mar</span>
+    </div>
+
+    <p class="contacto"><a href="mailto:llumvre@gmail.com">llumvre@gmail.com</a> · <a href="https://instagram.com/llumvre">@llumvre</a></p>
+
+    <p><a href="coronas.html">← coronas</a></p>
+  </section>
+
+</body>
+</html>
