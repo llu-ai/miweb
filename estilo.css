@@ -30,6 +30,78 @@ a {
 a:hover {
   border: 2px solid greenyellow;
 }
+
+/* En las páginas con <body class="con-rayo"> (index y talismanes):
+   en vez del cuadrado, un rayo amarillo por debajo de las letras */
+.con-rayo a {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;                   /* el rayo queda detrás de las letras pero delante del vídeo */
+}
+
+/* El rayo: zigzag irregular con puntas afiladas en los dos extremos.
+   La forma está dibujada en el SVG de background */
+.con-rayo a::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -10%;
+  right: -12%;
+  top: 22%;
+  bottom: -20%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80' preserveAspectRatio='none'%3E%3Cpath fill='%23ffff00' d='M2,44 L38,22 L60,34 L92,12 L110,30 L146,8 L160,26 L198,14 L168,42 L150,40 L118,62 L104,46 L74,70 L58,52 L26,64 Z'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;              /* sale disparado de izquierda a derecha */
+}
+
+/* La chispa en la punta del rayo */
+.con-rayo a::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -18%;
+  top: 4%;
+  width: 18px;
+  height: 18px;
+  background: #ffff00;
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+  transform: scale(0);
+}
+
+.con-rayo a:hover {
+  border: none;                         /* quita el cuadrado verde */
+}
+
+/* Los botones de encargos conservan su borde */
+.con-rayo .boton:hover {
+  border: 2px solid currentColor;
+}
+
+.con-rayo a:hover::before {
+  animation: rayo 0.5s ease-out forwards;
+}
+
+.con-rayo a:hover::after {
+  animation: chispa 0.5s ease-out 0.15s forwards;
+}
+
+/* El rayo cruza la palabra y parpadea, como un relámpago */
+@keyframes rayo {
+  0%   { transform: scaleX(0); opacity: 1; }
+  30%  { transform: scaleX(1); opacity: 1; }
+  45%  { opacity: 0.3; }
+  60%  { opacity: 1; }
+  75%  { opacity: 0.6; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+/* La chispa salta en la punta y se queda */
+@keyframes chispa {
+  0%   { transform: scale(0) rotate(0); }
+  60%  { transform: scale(1.4) rotate(45deg); }
+  100% { transform: scale(1) rotate(20deg); }
+}
+
 ul {
     list-style: none;
 }
