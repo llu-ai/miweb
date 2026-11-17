@@ -17,9 +17,19 @@ body {
 
 a {
     color: blue;
-    text-decoration: none;
-    font-size: 34px;
+    /* text-decoration: ; */
+    font-size: 50px;
 }
+
+.centrado {
+    text-align: center; /* Centra el contenido en línea, incluido el enlace */
+  }
+.contenedor-flex {
+  display: flex;
+  justify-content: center; /* Horizontal */
+  align-items: center;     /* Vertical */
+  height: 1000px;           /* Altura definida necesaria */
+}   
 
 a {
   text-decoration: none;
